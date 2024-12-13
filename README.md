@@ -13,19 +13,4 @@ Borrow Books: Submit requests to borrow books for specific dates.
 Borrow History: View personal borrowing history.
 
 
-API Endpoints
-Authentication
-Login: Basic Authentication (username and password).
 
-Librarian APIs
-Method	Endpoint	Description
-POST	/api/library/create-user/	Create a new library user.
-GET	/api/library/borrow-requests/	View all borrow requests.
-POST	/api/library/approve-request/<pk>/	Approve or deny a borrow request.
-GET	/api/library/user-history/<user_id>/	View a user's borrowing history.
-
-Library User APIs
-Method	Endpoint	Description
-GET	/api/library/books/	List all available books.
-POST	/api/library/borrow-request/	Submit a borrow request for a book.
-GET	/api/library/my-history/	View the user's borrowing history.
