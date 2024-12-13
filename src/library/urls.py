@@ -1,18 +1,15 @@
 from django.urls import path
 from .views import (
-    CreateUserView, ViewBorrowRequests, ApproveDenyBorrowRequest, ViewUserHistory,
-    ListBooksView, SubmitBorrowRequest, UserBorrowHistoryView
+    CreateUserView, BorrowRequestListView, ApproveDenyRequestView,
+    UserBorrowHistoryView, BookListView, SubmitBorrowRequestView, PersonalBorrowHistoryView
 )
 
 urlpatterns = [
-    # Librarian APIs
-    path('librarian/create_user/', CreateUserView.as_view()),
-    path('librarian/borrow_requests/', ViewBorrowRequests.as_view()),
-    path('librarian/borrow_request/<int:request_id>/', ApproveDenyBorrowRequest.as_view()),
-    path('librarian/user_history/<int:user_id>/', ViewUserHistory.as_view()),
-
-    # Library User APIs
-    path('books/', ListBooksView.as_view()),
-    path('user/borrow_request/', SubmitBorrowRequest.as_view()),
-    path('user/history/', UserBorrowHistoryView.as_view()),
+    path('create-user/', CreateUserView.as_view(), name='create_user'),
+    path('borrow-requests/', BorrowRequestListView.as_view(), name='borrow_requests'),
+    path('approve-deny-request/<int:pk>/', ApproveDenyRequestView.as_view(), name='approve_deny_request'),
+    path('user-history/<int:user_id>/', UserBorrowHistoryView.as_view(), name='user_borrow_history'),
+    path('books/', BookListView.as_view(), name='book_list'),
+    path('borrow-request/', SubmitBorrowRequestView.as_view(), name='submit_borrow_request'),
+    path('personal-history/', PersonalBorrowHistoryView.as_view(), name='personal_borrow_history'),
 ]
